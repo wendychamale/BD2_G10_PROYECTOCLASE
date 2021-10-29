@@ -1,0 +1,7 @@
+import { TestBed } from '@angular/core/testing';
+
+import { LibroService } from './libro.service';
+
+describe('LibroService', () => {
+  beforeEach(() => TestBed.configureTestingModule({}));
+});

@@ -1,0 +1,30 @@
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+
+import { DashboardComponent } from './Components/dashboard/dashboard.component';
+import {AprobarEditorialComponent } from './Components/aprobar-editorial/aprobar-editorial.component'
+import {RegistroComponent} from'./Components/registro/registro.component'
+import {LoginComponent} from './Components/login/login.component'
+import {PrincipalComponent} from './Components/principal/principal.component'
+import {CatalogoComponent} from './Components/catalogo/catalogo.component'
+import { CarritoCompraComponent} from './Components/carrito-compra/carrito-compra.component'
+import { EliminarClientesComponent} from './Components/eliminar-clientes/eliminar-clientes.component'
+import { CrudLibroComponent } from './Components/crud-libro/crud-libro.component';
+
+const routes: Routes = [
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  { path: 'login', component: LoginComponent },
+  { path: 'aprobar-editorial', component: AprobarEditorialComponent},
+  { path: 'registro', component: RegistroComponent },
+  { path: 'principal', component: PrincipalComponent },
+  { path: 'catalogo', component:CatalogoComponent},
+  { path: 'carrito', component:CarritoCompraComponent},
+  { path: 'eliminarUsuarios', component:EliminarClientesComponent},
+  { path: 'crud-libro',component:CrudLibroComponent}
+];
+
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
+})
+export class AppRoutingModule { }

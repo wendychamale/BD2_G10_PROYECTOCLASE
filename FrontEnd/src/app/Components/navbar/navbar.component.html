@@ -1,0 +1,33 @@
+<nav class="navbar default-layout col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+  <div class="text-center navbar-brand-wrapper d-flex align-items-top justify-content-center">
+    <a class="navbar-brand brand-logo" href="index.html">
+      <img src="assets/images/logo.svg" alt="logo" />
+    </a>
+    <a class="navbar-brand brand-logo-mini" href="index.html">
+      <img src="assets/images/logo-mini.svg" alt="logo" />
+    </a>
+  </div>
+  <div class="navbar-menu-wrapper d-flex align-items-center">
+   
+    <ul class="navbar-nav navbar-nav-right">
+
+      
+      <li class="nav-item dropdown d-none d-xl-inline-block" ngbDropdown>
+        <a class="nav-link dropdown-toggle" id="UserDropdown" ngbDropdownToggle>
+          <span class="profile-text">{{nombre}}</span>
+          <img class="img-xs rounded-circle" src="assets/images/faces/libreria.png" alt="Profile image" *ngIf="tipo == 0">
+          <img class="img-xs rounded-circle" src="assets/images/faces/cliente.png" alt="Profile image" *ngIf="tipo == 1">
+          <img class="img-xs rounded-circle" src="assets/images/faces/admin.png" alt="Profile image" *ngIf="tipo == 2">
+        </a>
+        <div class="dropdown-menu dropdown-menu-right navbar-dropdown" ngbDropdownMenu aria-labelledby="UserDropdown" *ngIf="tipo != 3">
+          <a class="dropdown-item" (click)="logout()">
+            Cerrar Sesion
+          </a>
+        </div>
+      </li>
+    </ul>
+    <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" (click)="toggleOffcanvas()">
+      <span class="mdi mdi-menu"></span>
+    </button>
+  </div>
+</nav>
