@@ -5,36 +5,58 @@
         <div class="card-body">
             <h4 class="card-title">Instituciones financieras</h4>
             <div class="table-responsive">
-                <table class="table table-striped">
+                <table class="table ">
                     <thead>
                         <tr>
-                            <th> No. Registro</th>
-                            <th> Editorial </th>
-                            <th> Accion </th>
-                            <th>Libro </th>
-                            <th> Fecha  </th>
+                            <th bgcolor="#FAB52C"> </th>
+                            <th bgcolor="#83DA67"> </th>
+                            <th bgcolor="#83DA67">  </th>
+                            <th bgcolor="#83DA67"> Anio 2020</th>
+                            <th bgcolor="#83DA67">   </th>
+                            <th bgcolor="#83DA67">  </th>
+                            <th bgcolor="#5EDDE3">  </th>
+                            <th  bgcolor="#5EDDE3">  </th>
+                            <th bgcolor="#5EDDE3">  </th>
+                            <th bgcolor="#5EDDE3"> Anio 2021</th>
+                            <th bgcolor="#5EDDE3">  </th>
+                            <th bgcolor="#5EDDE3">  </th>
+                            <th bgcolor="#5EDDE3">   </th>
+                        
+                        </tr>
+                        <tr>
+                            <th bgcolor="#FAB52C"> Perfil Financiero</th>
+                            <th bgcolor="#83DA67"> Agosto</th>
+                            <th bgcolor="#83DA67"> Septiembre </th>
+                            <th bgcolor="#83DA67"> Octubre</th>
+                            <th bgcolor="#83DA67"> Noviembre  </th>
+                            <th bgcolor="#83DA67"> Diciembre </th>
+                            <th bgcolor="#5EDDE3"> Enero </th>
+                            <th  bgcolor="#5EDDE3"> Febrero </th>
+                            <th bgcolor="#5EDDE3"> Marzo </th>
+                            <th bgcolor="#5EDDE3"> Abril</th>
+                            <th bgcolor="#5EDDE3"> Mayo </th>
+                            <th bgcolor="#5EDDE3"> Junio </th>
+                            <th bgcolor="#5EDDE3"> Julio  </th>
                         
                         </tr>
                     </thead>
                     <tbody>
                         <!-- Repitencia-->
-                        <tr *ngFor="let libro of libros;let indice=index">
+                        <tr *ngFor="let ranking of tabla_ranking;let indice=index">
                     
-                            <td>
-                                {{ indice+1}}
-                           
-                            </td>
-                            <td>
-                                {{libro.editorial}}
-                           
-                            </td>
-                             <td>
-                                {{libro.operacion}}
-                            </td>
-                             <td>{{libro.libro}}
-                            
-                            </td>
-                             <td>{{libro.fecha}}
+                            <td bgcolor="#F8E077  ">{{ ranking.nombre}}</td>
+                            <td bgcolor="#D4FEB6 "> {{ ranking.agosto}}</td>
+                             <td bgcolor="#D4FEB6 ">{{ ranking.septiembre}} </td>
+                             <td bgcolor="#D4FEB6 "> {{ ranking.octubre}}</td>
+                             <td bgcolor="#D4FEB6 "> {{ ranking.noviembre}}</td>
+ 			                <td bgcolor="#D4FEB6"> {{ ranking.diciembre}}</td>
+                             <td bgcolor="#A3FCFC ">{{ ranking.enero}} </td>
+                             <td bgcolor="#A3FCFC "> {{ ranking.febrero}}</td>
+                             <td bgcolor="#A3FCFC"> {{ ranking.marzo}}</td>
+ 		                     <td bgcolor="#A3FCFC"> {{ ranking.abril}}</td>
+                             <td bgcolor="#A3FCFC">{{ ranking.mayo}} </td>
+                             <td bgcolor="#A3FCFC"> {{ ranking.junio}}</td>
+                             <td bgcolor="#A3FCFC"> {{ ranking.julio}}</td>
                            
                         </tr>
                     </tbody>
