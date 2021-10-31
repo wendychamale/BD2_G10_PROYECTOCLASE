@@ -16,7 +16,7 @@ import { LoginComponent } from './Components/login/login.component';
 import { PrincipalComponent } from './Components/principal/principal.component';
 import { GraficoRankingComponent } from './Components/grafico-ranking/grafico-ranking.component';
 import { TablaRankingComponent } from './Components/tabla-ranking/tabla-ranking.component';
-
+import { ChartsModule } from 'ng2-charts';
 @NgModule({
   declarations: [
     
@@ -39,6 +39,7 @@ import { TablaRankingComponent } from './Components/tabla-ranking/tabla-ranking.
     NgbModule,
     HttpClientModule,
     CommonModule,
+    ChartsModule
 
   ],
   providers: [],
