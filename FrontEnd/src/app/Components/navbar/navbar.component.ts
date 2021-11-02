@@ -24,7 +24,7 @@ export class NavbarComponent implements OnInit {
     config.placement = 'bottom-right';
   }
 
-  nombre = "";
+  carnet = "";
   tipo = 3;
   ngOnInit() {
   }
@@ -37,35 +37,19 @@ export class NavbarComponent implements OnInit {
   {
     localStorage.setItem('logued', "0");
     localStorage.setItem('nombre',"");
-    localStorage.setItem('apellido',"");
-    localStorage.setItem('email',"");
-    localStorage.setItem('id',"");
-    localStorage.setItem('celular',"");
-    localStorage.setItem('tipoUsuario',"");
-    localStorage.setItem('libros',"");
+    localStorage.setItem('carnet',"");
     this.router.navigate(['login']);
   }
 
   inicio(){
     if(localStorage.getItem('logued') == '1')
     {
-      this.nombre = localStorage.getItem('nombre');
-      if(localStorage.getItem('tipoUsuario') == 'Editorial')
-      {
-        this.tipo = 0;
-      }
-      else if(localStorage.getItem('tipoUsuario') == 'Cliente')
-      {
-        this.tipo = 1;
-      }
-      else if(localStorage.getItem('tipoUsuario') == 'Administrador')
-      {
-        this.tipo = 2;
-      }
+      this.carnet = localStorage.getItem('carnet');
+     
     }
     else
     {
-      this.nombre = "";
+      this.carnet = "";
       this.tipo = 3;
     }
   }

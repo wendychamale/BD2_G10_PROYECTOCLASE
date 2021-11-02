@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Utils } from '../../Utils/utils';
 
 @Component({
   selector: 'app-principal',
@@ -12,4 +13,7 @@ export class PrincipalComponent implements OnInit {
   ngOnInit() {
   }
 
+  change(event:any) {
+console.log(event.target.files);
+}
 }

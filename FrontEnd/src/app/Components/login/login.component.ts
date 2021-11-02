@@ -13,12 +13,12 @@ export class LoginComponent implements OnInit {
 
   constructor(public service: LoginService, public router: Router) { }
 
-  email = "";
-  password = "";
+  carnet = "";
+  contrasena = "";
 
   user = {
-    email: '',
-    password: ''
+    carnet: '',
+    contrasena: ''
   };
 
   ngOnInit() {
@@ -31,11 +31,6 @@ export class LoginComponent implements OnInit {
           icon: 'mdi-account-circle'
         },
         {
-          title: 'Registro',
-          url: '/registro',
-          icon: 'mdi-account-plus'
-        },
-        {
           title: 'Home',
           url: '/dashboard',
           icon: 'mdi-home'
@@ -46,29 +41,19 @@ export class LoginComponent implements OnInit {
     
   }
 
-  verificarContrasena(contra: string) {
-    if (contra != "") {
-      return true
-    }
-    return false;
-  }
 
   Ingresar() {
-    if (this.correoCorrecto(this.email) != false && this.verificarContrasena(this.password) == true) {
-      this.user.email = this.email;
-      this.user.password = this.password;
+    if (this.carnet != "" && this.contrasena != "") {
+      this.user.carnet = this.carnet;
+      this.user.contrasena = this.contrasena;
 
       this.service.login(this.user)
 
         .subscribe(
           res => {
             localStorage.setItem('logued', '1');
-            localStorage.setItem('nombre', res.nombres);
-            localStorage.setItem('apellido', res.apellidos);
-            localStorage.setItem('email', res.email);
-            localStorage.setItem('id', res._id);
-            localStorage.setItem('celular', res.celular);
-            localStorage.setItem('tipoUsuario', res.tipo);
+            localStorage.setItem('carnet', res.carnet);
+            localStorage.setItem('contrasena', res.contrasena);
             this.mostrarMenu();
           },
           err => {
@@ -92,42 +77,26 @@ export class LoginComponent implements OnInit {
   }
 
   limpiarDatos() {
-    this.email = "";
-    this.password = "";
+    this.contrasena = "";
+    this.carnet = "";
   }
 
-  correoCorrecto(correo: string) {
-    const exp = /^[_a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/;
 
-    if (exp.test(correo)) {
-      return true;
-    }
-    return false;
-  }
 
   mostrarMenu() {
-    if (localStorage.getItem('tipoUsuario') == 'Administrador') {
       Utils.indices = [
+        
         {
-          title: 'Aprobar Editorial',
-          url: '/aprobar-editorial',
-          icon: 'mdi-book-open-variant'
-        },
-        {
-          title: 'Eliminar Usuarios',
-          url: '/eliminarUsuarios',
-          icon: 'mdi-delete-forever'
-        },
-        {
-          title: 'Bitacora',
-          url: '/bitacora',
+          title: 'Tabla Ranking',
+          url: '/tabla-ranking',
           icon: 'mdi-book-search-outline'
         },
         {
-          title: 'Estado de Ordenes',
-          url: '/estado-ordenes',
+          title: 'Grafico-Ranking',
+          url: '/grafico-ranking',
           icon: 'mdi-note-multiple-outline'
         },
+        
         {
           title: 'Home',
           url: '/dashboard',
@@ -135,74 +104,16 @@ export class LoginComponent implements OnInit {
         }
       ];
       this.router.navigate(['principal']);
-    }
-    else if (localStorage.getItem('tipoUsuario') == 'Editorial') {
-      Utils.indices = [
-        {
-          title: 'Crud Libros',
-          url: '/crud-libro',
-          icon: 'mdi-account-plus'
-      },
-      {
-        title: 'Impuesto',
-        url: '/impuesto',
-        icon: 'mdi-currency-usd'
-    },
-    {
-        title: 'Solicitudes Pendientes',
-        url: '/aceptar-solicitud-libro',
-        icon: 'mdi-book-open-outline'
-      },
-      {
-        title: 'Home',
-        url: '/dashboard',
-        icon: 'mdi-home'
-      }
-      ];
-      this.router.navigate(['principal']);
-    }
-    else if (localStorage.getItem('tipoUsuario') == 'Cliente') {
-      Utils.indices = [
-        {
-          title: 'Catalogo',
-          url: '/catalogo',
-          icon: 'mdi-shopping'
-        },
-        {
-          title: 'Carrito de Compras',
-          url: '/carrito',
-          icon: 'mdi-cart'
-        },
-        {
-          title: 'Solicitudes',
-          url: '/solicitud-libro',
-          icon: 'mdi-book-open-page-variant'
-        },
-        {
-          title: 'Ordenes',
-          url: '/ordenes-clientes',
-          icon: 'mdi-note-multiple-outline'
-        },
-        {
-          title: 'Home',
-          url: '/dashboard',
-          icon: 'mdi-home'
-        }
-      ];
-      this.router.navigate(['catalogo']);
-    }
+    
+    
+  
   }
 
   logout()
   {
     localStorage.setItem('logued', "0");
-    localStorage.setItem('nombre',"");
-    localStorage.setItem('apellido',"");
-    localStorage.setItem('email',"");
-    localStorage.setItem('id',"");
-    localStorage.setItem('celular',"");
-    localStorage.setItem('tipoUsuario',"");
-    localStorage.setItem('libros',"");
+    localStorage.setItem('carnet',"");
+    localStorage.setItem('contrasena',"");
     this.router.navigate(['login']);
   }
 

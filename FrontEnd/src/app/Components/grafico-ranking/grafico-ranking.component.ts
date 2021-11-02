@@ -21,18 +21,18 @@ export class GraficoRankingComponent implements OnInit {
   public lineChartData: ChartDataSets[] = [];
   public lineChartLabels: Label[] = ['Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre', 'Enero', 'Febrero','Marzo','Abril','Mayo','Junio','Julio'];
   public lineChartColors: Color[] = [
-    {borderColor: 'rgba(148,159,177,1)'  },
-    {borderColor: 'red'},
-    {borderColor: 'rgba(3, 83, 169)' },
-    {borderColor: 'rgba(12, 12, 12 )'},
-    {borderColor: 'rgba(20, 41, 40)'},
-    {borderColor: 'rgba(144, 12, 63 )'},
-    {borderColor: 'rgba(255, 87, 51'},
-    {borderColor: 'rgba(243, 15, 94 )'},
-    {borderColor:'rgba(15, 243, 236 )'},
-    {borderColor: 'rgba(213, 71, 247 )'}, 
-    {borderColor: 'rgba(249, 139, 107 )'},
-    {borderColor: 'rgba(38, 247, 5 )',}
+    {borderColor: 'rgba(148,159,177,1)' ,backgroundColor: '#fff' },
+    {borderColor: 'red',backgroundColor: '#fff'},
+    {borderColor: 'rgba(3, 83, 169)' ,backgroundColor: '#fff'},
+    {borderColor: 'rgba(12, 12, 12 )',backgroundColor: '#fff'},
+    {borderColor: 'rgba(20, 41, 40)',backgroundColor: '#fff'},
+    {borderColor: 'rgba(144, 12, 63 )',backgroundColor: '#fff'},
+    {borderColor: 'rgba(255, 87, 51',backgroundColor: '#fff'},
+    {borderColor: 'rgba(243, 15, 94 )',backgroundColor: '#fff'},
+    {borderColor:'rgba(15, 243, 236 )',backgroundColor: '#fff'},
+    {borderColor: 'rgba(213, 71, 247 )',backgroundColor: '#fff'}, 
+    {borderColor: 'rgba(249, 139, 107 )',backgroundColor: '#fff'},
+    {borderColor: 'rgba(38, 247, 5 )',backgroundColor: '#fff'}
   ];
   public lineChartLegend = true;
   public lineChartType = 'line';
@@ -156,11 +156,6 @@ for (let i = 0; i < this.libros.length; i++) {
       }, err =>  {  console.log("Error mostrar bancos")})
 
      
-}
-
-llenar(){
-
-
 }
   
 }
