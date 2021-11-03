@@ -1,4 +1,3 @@
-import { json } from 'body-parser';
 import { Request, Response } from 'express';
 import pool from '../database/database';
 
@@ -45,6 +44,24 @@ class IndexController {
             if(cont == 17){ cont = 1;}
         }
         res.json(obje);
+    }
+
+    public async login(req:Request, res:Response):Promise<void>{
+        const respuesta = await pool.query('Select *from proyecto.Usuario u'
+                        +' where u.correo = ?'
+                        +' and u.pass = ?', [req.body.correo, req.body.pass]);
+        if(respuesta.length == 0){
+            res.send(false);
+        }else{
+            res.send(true);
+        }
+        console.log(respuesta);
+    }
+
+    public async registrarUsuario(req:Request, res:Response):Promise<void>{
+        console.log(req.body);
+        await pool.query('INSERT INTO proyecto.Usuario set ?',[req.body]);
+        res.send(true);
     }
 }
 

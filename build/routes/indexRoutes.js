@@ -15,6 +15,8 @@ class IndexRoutes {
         this.router.get('/api/query4', indexController_1.indexController.consulta_4);
         this.router.get('/api/query5', indexController_1.indexController.consulta_5);
         this.router.get('/api/ranking', indexController_1.indexController.ranking);
+        this.router.post('/api/login', indexController_1.indexController.login);
+        this.router.post('/api/registrar', indexController_1.indexController.registrarUsuario);
         this.router;
     }
 }

@@ -65,5 +65,26 @@ class IndexController {
             res.json(obje);
         });
     }
+    login(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const respuesta = yield database_1.default.query('Select *from proyecto.Usuario u'
+                + ' where u.correo = ?'
+                + ' and u.pass = ?', [req.body.correo, req.body.pass]);
+            if (respuesta.length == 0) {
+                res.send(false);
+            }
+            else {
+                res.send(true);
+            }
+            console.log(respuesta);
+        });
+    }
+    registrarUsuario(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            console.log(req.body);
+            yield database_1.default.query('INSERT INTO proyecto.Usuario set ?', [req.body]);
+            res.send(true);
+        });
+    }
 }
 exports.indexController = new IndexController();
